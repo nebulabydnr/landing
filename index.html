@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula Landings — Landing pages que convierten</title>
+  <!-- Meta descripción para SEO -->
+  <meta name="description" content="Creamos landing pages en HTML, CSS y JavaScript para pequeñas y medianas empresas. Diseño responsive, sin mantenimiento y enfocadas a conversión (WhatsApp o formulario).">
+  <!-- Estilos e íconos: Font Awesome para íconos sutiles en morado -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET Y VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --morado: #700093;
+      --morado-claro: #f3e5f9;
+      --morado-suave: #e1c7f0;
+      --blanco: #ffffff;
+      --gris-fondo: #fafafa;
+      --texto-oscuro: #1e1e2f;
+      --texto-gris: #4a4a5a;
+      --sombra: 0 10px 30px rgba(112, 0, 147, 0.08);
+      --radio: 16px;
+      --transicion: all 0.25s ease;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--blanco);
+      color: var(--texto-oscuro);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Importar fuente Inter opcional (mejora estética) */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- BOTONES Y CTA ----- */
+    .btn {
+      display: inline-block;
+      background-color: var(--morado);
+      color: var(--blanco);
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: var(--transicion);
+      border: 2px solid var(--morado);
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 18px rgba(112, 0, 147, 0.2);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #5a0075;
+      border-color: #5a0075;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 24px rgba(112, 0, 147, 0.3);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--morado);
+      border: 2px solid var(--morado);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--morado);
+      color: var(--blanco);
+    }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
+    /* ----- HEADER / NAV ----- */
+    header {
+      padding: 20px 0;
+      background-color: var(--blanco);
+      border-bottom: 1px solid rgba(112, 0, 147, 0.08);
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--texto-oscuro);
+    }
+
+    .logo span {
+      color: var(--morado);
+    }
+
+    .logo i {
+      color: var(--morado);
+      margin-right: 6px;
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      padding: 60px 0 80px;
+      background: linear-gradient(135deg, #ffffff 0%, #fcf7ff 100%);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin: 0 auto 24px;
+      color: var(--texto-oscuro);
+    }
+
+    .hero h1 i {
+      color: var(--morado);
+      font-size: 0.9em;
+      margin: 0 4px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--texto-gris);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .hero-image {
+      margin-top: 30px;
+      background: var(--blanco);
+      border-radius: 32px;
+      padding: 20px;
+      box-shadow: var(--sombra);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(112, 0, 147, 0.1);
+    }
+
+    .hero-image i {
+      font-size: 5rem;
+      color: var(--morado);
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+
+    .hero-image p {
+      font-size: 1rem;
+      margin-bottom: 0;
+      color: var(--texto-gris);
+    }
+
+    /* ----- CARACTERÍSTICAS (iconos) ----- */
+    .features {
+      padding: 70px 0;
+      background-color: var(--blanco);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--texto-gris);
+      max-width: 600px;
+      margin: 0 auto 56px;
+      font-size: 1.15rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 32px 24px;
+      box-shadow: 0 8px 24px rgba(112, 0, 147, 0.06);
+      border: 1px solid rgba(112, 0, 147, 0.08);
+      transition: var(--transicion);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(112, 0, 147, 0.12);
+      border-color: var(--morado-suave);
+    }
+
+    .feature-card i {
+      font-size: 2.6rem;
+      color: var(--morado);
+      margin-bottom: 20px;
+      background: var(--morado-claro);
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: var(--texto-gris);
+      font-size: 1rem;
+    }
+
+    /* ----- ENFOQUE CONVERSIÓN ----- */
+    .conversion {
+      padding: 70px 0;
+      background-color: #fcf9ff;
+    }
+
+    .conversion-flex {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .conversion-text {
+      flex: 1 1 300px;
+    }
+
+    .conversion-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .conversion-text ul {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .conversion-text li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      color: var(--texto-gris);
+    }
+
+    .conversion-text li i {
+      color: var(--morado);
+      font-size: 1.4rem;
+      width: 28px;
+      text-align: center;
+    }
+
+    .conversion-highlight {
+      flex: 1 1 300px;
+      background: var(--blanco);
+      padding: 40px 32px;
+      border-radius: 24px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(112, 0, 147, 0.1);
+      text-align: center;
+    }
+
+    .conversion-highlight i {
+      font-size: 3rem;
+      color: var(--morado);
+      margin-bottom: 16px;
+    }
+
+    .conversion-highlight h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .conversion-highlight p {
+      color: var(--texto-gris);
+      margin-bottom: 24px;
+    }
+
+    /* ----- SIN MANTENIMIENTO + RESPONSIVE ----- */
+    .no-maint {
+      padding: 70px 0;
+      background-color: var(--blanco);
+    }
+
+    .no-maint-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .no-maint-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 32px 28px;
+      box-shadow: 0 8px 24px rgba(112, 0, 147, 0.06);
+      border: 1px solid rgba(112, 0, 147, 0.08);
+      transition: var(--transicion);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .no-maint-card i {
+      font-size: 2rem;
+      color: var(--morado);
+      margin-bottom: 20px;
+      background: var(--morado-claro);
+      padding: 14px;
+      border-radius: 18px;
+    }
+
+    .no-maint-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .no-maint-card p {
+      color: var(--texto-gris);
+    }
+
+    .no-maint-card .badge {
+      background: var(--morado-claro);
+      color: var(--morado);
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 40px;
+      margin-top: 16px;
+      display: inline-block;
+    }
+
+    /* ----- CTA FINAL ----- */
+    .final-cta {
+      padding: 80px 0;
+      background: linear-gradient(145deg, #ffffff 0%, #f6ecfc 100%);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta p {
+      font-size: 1.2rem;
+      color: var(--texto-gris);
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .btn {
+      font-size: 1.15rem;
+      padding: 18px 48px;
+    }
+
+    .final-cta .btn i {
+      font-size: 1.2rem;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      padding: 40px 0;
+      background-color: var(--blanco);
+      border-top: 1px solid rgba(112, 0, 147, 0.08);
+      text-align: center;
+      color: var(--texto-gris);
+      font-size: 0.95rem;
+    }
+
+    footer i {
+      color: var(--morado);
+    }
+
+    footer a {
+      color: var(--morado);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- RESPONSIVE AJUSTES ----- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 0 60px;
+      }
+
+      .hero-cta .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .header-flex {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .conversion-flex {
+        flex-direction: column;
+      }
+
+      .conversion-highlight {
+        padding: 30px 20px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+      }
+
+      .feature-card {
+        padding: 24px 18px;
+      }
+    }
+
+    /* Animación sutil al hacer scroll (clase añadida con JS) */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <i class="fas fa-cloud"></i> Nebula <span>Landings</span>
+      </div>
+      <!-- Botón de contacto directo en header (opcional) -->
+      <a href="https://nebula.dnrconsultor.com/p/contacto.html" class="btn btn-outline" style="padding: 10px 24px; font-size: 0.95rem;">
+        <i class="fas fa-paper-plane"></i> Contacto
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>
+        <i class="fas fa-rocket"></i> Landing pages que convierten visitas en <span style="color: var(--morado);">clientes</span>
+      </h1>
+      <p>
+        Diseñamos y desarrollamos landing pages en HTML, CSS y JavaScript para pequeñas y medianas empresas.
+        Enfocadas 100% en conversión: WhatsApp o formulario de suscripción, sin mantenimiento y con diseño responsive.
+      </p>
+      <div class="hero-cta">
+        <a href="https://nebula.dnrconsultor.com/p/contacto.html" class="btn">
+          <i class="fas fa-whatsapp"></i> Quiero mi landing ahora
+        </a>
+        <a href="#beneficios" class="btn btn-outline">
+          <i class="fas fa-arrow-down"></i> Ver beneficios
+        </a>
+      </div>
+      <!-- Mockup visual simple (ícono) -->
+      <div class="hero-image fade-up">
+        <i class="fas fa-laptop-code"></i>
+        <p><strong>HTML · CSS · JavaScript</strong> — Código limpio, rápido y listo para GitHub Pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS PRINCIPALES (iconos morados) -->
+  <section class="features" id="beneficios">
+    <div class="container">
+      <h2 class="section-title">¿Por qué elegir Nebula Landings?</h2>
+      <p class="section-sub">Todo lo que tu pyme necesita para captar leads sin complicaciones técnicas.</p>
+
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Diseño responsive</h3>
+          <p>Se adapta perfectamente a móviles, tablets y escritorio. Tus clientes ven tu página impecable desde cualquier dispositivo.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <i class="fas fa-bullseye"></i>
+          <h3>Enfocadas a conversión</h3>
+          <p>Botones estratégicos hacia WhatsApp o formulario de suscripción. Cada sección está pensada para generar acción.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <i class="fas fa-tools"></i>
+          <h3>Cero mantenimiento</h3>
+          <p>No necesitas actualizar nada. Entregamos el código y tú solo te preocupas por atender a tus nuevos clientes.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <i class="fas fa-code"></i>
+          <h3>HTML, CSS y JS</h3>
+          <p>Desarrollo puro y ligero. Sin dependencias pesadas, ideal para cargar rápido y posicionar mejor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFOQUE CONVERSIÓN: WHATSAPP / FORMULARIO -->
+  <section class="conversion">
+    <div class="container conversion-flex">
+      <div class="conversion-text fade-up">
+        <h2>Convierte visitas en clientes por WhatsApp o formulario</h2>
+        <p style="color: var(--texto-gris); font-size: 1.1rem; margin-bottom: 8px;">
+          Diseñamos el flujo perfecto para que tus usuarios te contacten sin fricción.
+        </p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> <strong>Botón flotante de WhatsApp</strong> siempre visible.</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Formulario de suscripción</strong> integrado y validado.</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Llamados a la acción</strong> claros y repetidos estratégicamente.</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Prueba social</strong> y secciones que generan confianza.</li>
+        </ul>
+      </div>
+      <div class="conversion-highlight fade-up">
+        <i class="fas fa-chart-line"></i>
+        <h3>+40% de conversión</h3>
+        <p>Nuestras landings están optimizadas para que cada visita tenga una intención clara: contactarte.</p>
+        <a href="https://nebula.dnrconsultor.com/p/contacto.html" class="btn" style="width: 100%;">
+          <i class="fas fa-whatsapp"></i> Solicitar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIN MANTENIMIENTO + RESPONSIVE DETALLE -->
+  <section class="no-maint">
+    <div class="container">
+      <h2 class="section-title">Sin mantenimiento, sin preocupaciones</h2>
+      <p class="section-sub">Tu página funcionará sola. Nosotros nos encargamos de que sea rápida, segura y adaptable.</p>
+
+      <div class="no-maint-grid">
+        <div class="no-maint-card fade-up">
+          <i class="fas fa-infinity"></i>
+          <h3>Autogestionable</h3>
+          <p>No requiere actualizaciones constantes ni plugins. El código es estático y siempre estará en línea.</p>
+          <span class="badge">0% mantenimiento</span>
+        </div>
+        <div class="no-maint-card fade-up">
+          <i class="fas fa-tablet-alt"></i>
+          <h3>100% responsive</h3>
+          <p>Desde un iPhone hasta un monitor 4K. Usamos flexbox, grid y media queries para una experiencia perfecta.</p>
+          <span class="badge">Mobile first</span>
+        </div>
+        <div class="no-maint-card fade-up">
+          <i class="fas fa-bolt"></i>
+          <h3>Carga ultrarrápida</h3>
+          <p>Sin frameworks pesados. Solo HTML, CSS y JavaScript optimizados. Mejor velocidad, mejor SEO.</p>
+          <span class="badge">Rendimiento</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>¿Listo para tener una landing que trabaje por ti?</h2>
+      <p>Cuéntanos sobre tu pyme y te ayudamos a crear una página enfocada en resultados.</p>
+      <a href="https://nebula.dnrconsultor.com/p/contacto.html" class="btn">
+        <i class="fas fa-paper-plane"></i> Ir a contacto
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        <i class="fas fa-cloud"></i> Nebula Landings — Landing pages para pymes.
+        <br>
+        <a href="https://nebula.dnrconsultor.com/p/contacto.html">Contáctanos</a> · Diseño responsive · Sin mantenimiento
+      </p>
+      <p style="margin-top: 12px; font-size: 0.85rem; color: #8a8a9a;">
+        © 2025 Nebula Landings. Hecho con HTML, CSS y JavaScript.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: animaciones al hacer scroll y pequeños detalles -->
+  <script>
+    (function() {
+      // Animación fade-up al hacer scroll (Intersection Observer)
+      const fadeElements = document.querySelectorAll('.fade-up');
+
+      if (fadeElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              // Opcional: dejar de observar después de que se hace visible
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,  // Se activa cuando el 15% del elemento es visible
+          rootMargin: '0px 0px -30px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+      }
+
+      // Pequeña mejora: suavizar scroll para anclas internas
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Año dinámico en footer (opcional, pero lo dejamos estático por simplicidad)
+      // Podría actualizarse, pero no es necesario.
+    })();
+  </script>
+</body>
+</html>
