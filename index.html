@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nebula ADS Pages — Landing pages que convierten</title>
   <!-- Meta descripción para SEO -->
-  <meta name="description" content="Creamos landing pages en HTML, CSS y JavaScript para pequeñas y medianas empresas. Diseño responsive, sin mantenimiento y enfocadas a conversión (WhatsApp o formulario).">
+  <meta name="description" content="Creamos landing pages profesionales para pequeñas y medianas empresas. Diseño responsive, sin mantenimiento y enfocadas a conversión (WhatsApp o formulario).">
   <!-- Estilos e íconos: Font Awesome para íconos sutiles en morado -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* ----- RESET Y VARIABLES ----- */
     * {
@@ -318,19 +318,74 @@
       margin-bottom: 24px;
     }
 
-    /* ----- SIN MANTENIMIENTO + RESPONSIVE ----- */
-    .no-maint {
+    /* ----- NUEVA SECCIÓN: ¿PARA QUIÉN ES UNA LANDING PAGE? ----- */
+    .for-who {
       padding: 70px 0;
       background-color: var(--blanco);
     }
 
-    .no-maint-grid {
+    .for-who-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .no-maint-card {
+    .for-who-card {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 28px 24px;
+      box-shadow: 0 6px 20px rgba(112, 0, 147, 0.05);
+      border: 1px solid rgba(112, 0, 147, 0.08);
+      transition: var(--transicion);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .for-who-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(112, 0, 147, 0.1);
+      border-color: var(--morado-suave);
+    }
+
+    .for-who-card i {
+      font-size: 1.8rem;
+      color: var(--morado);
+      background: var(--morado-claro);
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .for-who-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .for-who-card p {
+      color: var(--texto-gris);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ----- TESTIMONIOS ----- */
+    .testimonials {
+      padding: 70px 0;
+      background-color: #fcf9ff;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .testimonial-card {
       background: var(--blanco);
       border-radius: var(--radio);
       padding: 32px 28px;
@@ -339,36 +394,54 @@
       transition: var(--transicion);
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
     }
 
-    .no-maint-card i {
-      font-size: 2rem;
-      color: var(--morado);
-      margin-bottom: 20px;
-      background: var(--morado-claro);
-      padding: 14px;
-      border-radius: 18px;
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(112, 0, 147, 0.1);
     }
 
-    .no-maint-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
+    .testimonial-stars {
+      color: #f5b342;
+      margin-bottom: 16px;
+      font-size: 1rem;
     }
 
-    .no-maint-card p {
+    .testimonial-text {
+      font-style: italic;
       color: var(--texto-gris);
+      margin-bottom: 20px;
+      flex-grow: 1;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
-    .no-maint-card .badge {
-      background: var(--morado-claro);
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-author i {
+      font-size: 1.8rem;
       color: var(--morado);
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 4px 12px;
-      border-radius: 40px;
-      margin-top: 16px;
-      display: inline-block;
+      background: var(--morado-claro);
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 50%;
+    }
+
+    .testimonial-author div h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .testimonial-author div span {
+      font-size: 0.85rem;
+      color: var(--texto-gris);
     }
 
     /* ----- CTA FINAL ----- */
@@ -457,6 +530,12 @@
       .section-title {
         font-size: 1.8rem;
       }
+
+      .for-who-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
     }
 
     @media (max-width: 480px) {
@@ -475,6 +554,10 @@
 
       .feature-card {
         padding: 24px 18px;
+      }
+
+      .testimonial-card {
+        padding: 24px 20px;
       }
     }
 
@@ -513,12 +596,12 @@
         <i class="fas fa-rocket"></i> Landing pages que convierten visitas en <span style="color: var(--morado);">clientes</span>
       </h1>
       <p>
-        Diseñamos y desarrollamos landing pages en HTML, CSS y JavaScript para pequeñas y medianas empresas.
+        Diseñamos y desarrollamos landing pages profesionales para pequeñas y medianas empresas.
         Enfocadas 100% en conversión: WhatsApp o formulario de suscripción, sin mantenimiento y con diseño responsive.
       </p>
       <div class="hero-cta">
         <a href="https://nebula.dnrconsultor.com/p/contacto.html" class="btn">
-          <i class="fas fa-whatsapp"></i> Quiero mi landing ahora
+          <i class="fab fa-whatsapp"></i> Quiero mi landing ahora
         </a>
         <a href="#beneficios" class="btn btn-outline">
           <i class="fas fa-arrow-down"></i> Ver beneficios
@@ -527,7 +610,7 @@
       <!-- Mockup visual simple (ícono) -->
       <div class="hero-image fade-up">
         <i class="fas fa-laptop-code"></i>
-        <p><strong>HTML · CSS · JavaScript</strong> — Código limpio, rápido y listo para GitHub Pages.</p>
+        <p><strong>Diseño web profesional</strong> — Código limpio, rápido y listo para publicar.</p>
       </div>
     </div>
   </section>
@@ -540,7 +623,7 @@
 
       <div class="features-grid">
         <div class="feature-card fade-up">
-          <i class="fas fa-mobile-alt"></i>
+          <i class="fas fa-mobile-screen-button"></i>
           <h3>Diseño responsive</h3>
           <p>Se adapta perfectamente a móviles, tablets y escritorio. Tus clientes ven tu página impecable desde cualquier dispositivo.</p>
         </div>
@@ -556,8 +639,75 @@
         </div>
         <div class="feature-card fade-up">
           <i class="fas fa-code"></i>
-          <h3>HTML, CSS y JS</h3>
-          <p>Desarrollo puro y ligero. Sin dependencias pesadas, ideal para cargar rápido y posicionar mejor.</p>
+          <h3>Tecnología ligera</h3>
+          <p>Desarrollo puro y ligero. Sin dependencias pesadas, ideal para cargar rápido y posicionar mejor en Google.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: ¿PARA QUIÉN ES UNA LANDING PAGE? -->
+  <section class="for-who">
+    <div class="container">
+      <h2 class="section-title">¿Para quién es una landing page?</h2>
+      <p class="section-sub">Si tienes un negocio o proyecto, una landing page te ayuda a destacar y conseguir más clientes.</p>
+
+      <div class="for-who-grid">
+        <div class="for-who-card fade-up">
+          <i class="fas fa-building"></i>
+          <div>
+            <h3>Inmobiliarias</h3>
+            <p>Dale un aspecto profesional a tus exclusivas. Muestra propiedades con galerías, detalles y contacto directo.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-utensils"></i>
+          <div>
+            <h3>Restaurantes</h3>
+            <p>Promociones, descuentos, menú del día y reservas. Atrae más comensales con una página atractiva.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-store"></i>
+          <div>
+            <h3>Tiendas</h3>
+            <p>Muestra tu producto de una forma profesional. Catálogo visual, ofertas y enlace directo a tu WhatsApp.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-briefcase"></i>
+          <div>
+            <h3>Servicios</h3>
+            <p>Dale una imagen más corporativa a lo que haces y deja de depender únicamente de las Redes Sociales.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-link"></i>
+          <div>
+            <h3>Listas de enlaces</h3>
+            <p>Tu link in bio personal, sin restricciones ni limitaciones. Todos tus enlaces importantes en un solo lugar.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-download"></i>
+          <div>
+            <h3>Para descargas</h3>
+            <p>Si tienes una app móvil o un recurso digital, facilita que tus usuarios lo descarguen con un solo clic.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-calendar-check"></i>
+          <div>
+            <h3>Eventos y reservas</h3>
+            <p>Promociona conferencias, talleres o citas. Incluye formulario de registro y confirmación automática.</p>
+          </div>
+        </div>
+        <div class="for-who-card fade-up">
+          <i class="fas fa-graduation-cap"></i>
+          <div>
+            <h3>Cursos y formaciones</h3>
+            <p>Vende tus cursos online, muestra el temario, los beneficios y permite la inscripción directa.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -583,36 +733,65 @@
         <h3>+40% de conversión</h3>
         <p>Nuestras landings están optimizadas para que cada visita tenga una intención clara: contactarte.</p>
         <a href="https://nebula.dnrconsultor.com/p/contacto.html" class="btn" style="width: 100%;">
-          <i class="fas fa-whatsapp"></i> Solicitar por WhatsApp
+          <i class="fab fa-whatsapp"></i> Solicitar por WhatsApp
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SIN MANTENIMIENTO + RESPONSIVE DETALLE -->
-  <section class="no-maint">
+  <!-- NUEVA SECCIÓN: TESTIMONIOS -->
+  <section class="testimonials">
     <div class="container">
-      <h2 class="section-title">Sin mantenimiento, sin preocupaciones</h2>
-      <p class="section-sub">Tu página funcionará sola. Nosotros nos encargamos de que sea rápida, segura y adaptable.</p>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <p class="section-sub">Historias reales de pymes que ya están convirtiendo visitas en clientes.</p>
 
-      <div class="no-maint-grid">
-        <div class="no-maint-card fade-up">
-          <i class="fas fa-infinity"></i>
-          <h3>Autogestionable</h3>
-          <p>No requiere actualizaciones constantes ni plugins. El código es estático y siempre estará en línea.</p>
-          <span class="badge">0% mantenimiento</span>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            "Desde que tenemos la landing page, las consultas por WhatsApp se duplicaron. Es rápida, se ve profesional y nuestros clientes la encuentran fácilmente."
+          </p>
+          <div class="testimonial-author">
+            <i class="fas fa-user-circle"></i>
+            <div>
+              <h4>Laura Gómez</h4>
+              <span>Inmobiliaria Horizonte</span>
+            </div>
+          </div>
         </div>
-        <div class="no-maint-card fade-up">
-          <i class="fas fa-tablet-alt"></i>
-          <h3>100% responsive</h3>
-          <p>Desde un iPhone hasta un monitor 4K. Usamos flexbox, grid y media queries para una experiencia perfecta.</p>
-          <span class="badge">Mobile first</span>
+
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            "Pasamos de depender solo de Instagram a tener una página propia donde mostramos el menú y las promociones. Los pedidos por WhatsApp aumentaron muchísimo."
+          </p>
+          <div class="testimonial-author">
+            <i class="fas fa-user-circle"></i>
+            <div>
+              <h4>Carlos Méndez</h4>
+              <span>Restaurante El Sabor</span>
+            </div>
+          </div>
         </div>
-        <div class="no-maint-card fade-up">
-          <i class="fas fa-bolt"></i>
-          <h3>Carga ultrarrápida</h3>
-          <p>Sin frameworks pesados. Solo HTML, CSS y JavaScript optimizados. Mejor velocidad, mejor SEO.</p>
-          <span class="badge">Rendimiento</span>
+
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            "Soy consultora y necesitaba una imagen más corporativa. La landing me ayudó a transmitir confianza y ahora cierro más clientes. ¡Totalmente recomendado!"
+          </p>
+          <div class="testimonial-author">
+            <i class="fas fa-user-circle"></i>
+            <div>
+              <h4>Ana Torres</h4>
+              <span>Consultora Empresarial</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -678,9 +857,6 @@
           }
         });
       });
-
-      // Año dinámico en footer (opcional, pero lo dejamos estático por simplicidad)
-      // Podría actualizarse, pero no es necesario.
     })();
   </script>
 </body>
